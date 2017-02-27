@@ -11,15 +11,18 @@
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>3.5.3</version>
 				<configuration>
-					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
-					<changeLogFile>src/main/resources/change-log.xml</changeLogFile>
+					<propertyFile>src/main/resources/${environment}/liquibase.properties</propertyFile>
+					<changelogSchemaName>util</changelogSchemaName>
+					<databaseChangeLogTableName>change_log</databaseChangeLogTableName>
+					<databaseChangeLogLockTableName>change_log_lock</databaseChangeLogLockTableName>
+					<changeLogFile>src/main/resources/selena.changelog-master.xml</changeLogFile>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
 		<!-- Need to install manually -->
-		<!-- mvn install:install-file -Dfile=sqljdbc4-4.0.2206.100.jar -DgroupId=com.microsoft.sqlserver 
+		<!-- mvn install:install-file -Dfile=sqljdbc4-4.0.2206.100.jar -DgroupId=com.microsoft.sqlserver
 			-DartifactId=sqljdbc4 -Dversion=4.0.2206.100 -Dpackaging=jar -->
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
