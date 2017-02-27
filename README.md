@@ -4,12 +4,11 @@
 - brew install maven
 - need to install the driver manually (it's on ./lib)
 ```
-mvn install:install-file -Dfile=sqljdbc4-4.0.2206.100.jar -DgroupId=com.microsoft.sqlserver\ 
--DartifactId=sqljdbc4 -Dversion=4.0.2206.100 -Dpackaging=jar
+make
 ```
-
 - adjust liquidbase properties
-- adjust change-log.xml
+- adjust selena.changelog-master.xml
+- add your changes
 - run maven install
 
 ```
@@ -19,5 +18,5 @@ mvn clean install
 -run a liquibase cmd or any other [Docs](http://www.liquibase.org/documentation/maven/)
 
 ```
-mvn liquibase:update
+mvn liquibase:update -Denvironment=(development/uat/prod)
 ```
